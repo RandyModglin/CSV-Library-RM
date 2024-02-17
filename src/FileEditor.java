@@ -42,7 +42,15 @@ public class FileEditor {
 	}
 
 	private void editLine(File file, int lineNum, int opCode, String content) throws IOException {
-		File newFile = new File("temp.tmp");
+		String folderPath = System.getProperty("user.dir") + File.separator + "CSVs";
+		File folder = new File(folderPath);
+		if (!folder.exists()) {
+			folder.mkdirs();
+			System.out.println("Folder Created: CSVs");
+		}
+
+		String newFilePath = folderPath + File.separator + file.getName() + ".csv";
+		File newFile = new File(newFilePath);
 
 		/* Create reader and writer */
 		BufferedReader reader = new BufferedReader(new FileReader(file));
