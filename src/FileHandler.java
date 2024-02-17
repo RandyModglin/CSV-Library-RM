@@ -29,4 +29,40 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
+
+    public void deleteCSV(String filename) {
+        try {
+            // Get the path for CSV folder
+            String filePath = System.getProperty("user.dir") + File.separator + "CSVs" + File.separator + filename + ".csv";
+            File csvFile = new File(filePath);
+
+            // Check if the file exists, delete if it does
+            if (csvFile.exists()) {
+                if (csvFile.delete()) {
+                    System.out.println("File deleted: " + csvFile.getName());
+                } else {
+                    System.out.println("Failed to delete file: " + csvFile.getName());
+                }
+            } else {
+                System.out.println("File does not exist: " + csvFile.getName());
+            }
+        } catch (Exception e) {
+            System.err.println("Error occurred while trying to delete CSV file named:" + filename);
+            e.printStackTrace();
+        }
+    }
+
+    public File getCSVFile(String filename) {
+        // Get the path for CSV folder
+        String filePath = System.getProperty("user.dir") + File.separator + "CSVs" + File.separator + filename + ".csv";
+        File csvFile = new File(filePath);
+
+        // Check if the file exists, return it if it does
+        if (csvFile.exists()) {
+            return csvFile;
+        } else {
+            System.out.println("File does not exist: " + csvFile.getName());
+            return null;
+        }
+    }
 }
