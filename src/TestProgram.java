@@ -9,9 +9,10 @@ public class TestProgram {
 
 		/* Library creates CSV file */
 		test1();
-
-		/* Library creates CSV file */
+		/* Library deletes CSV file */
 		test2();
+		/* Library tries to delete CSV file that doesn't exist, should fail */
+		test3();
 
 	}
 
@@ -22,6 +23,11 @@ public class TestProgram {
 
 	/* Delete CSV File, if successful it will print to Output */
 	public static void test2() {
+		CSVLibrary.deleteCSV("file1");
+	}
+
+	/* Delete CSV File that doesn't exist, shoul fail */
+	public static void test3() {
 		CSVLibrary.deleteCSV("file1");
 	}
 }

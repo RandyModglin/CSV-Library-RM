@@ -12,10 +12,7 @@ public class LibraryInterface {
 
 	public void createCSV(String filename) {
 		File currFile = handler.getCSVFile(filename);
-
-		if (currFile == null) {
-			handler.createCSV(filename);
-		}
+		handler.createCSV(filename);
 	}
 
 	public void printCSV(String filename) {
@@ -35,10 +32,7 @@ public class LibraryInterface {
 
 	public void deleteCSV(String fileName) {
 		File currFile = handler.getCSVFile(fileName);
-
-		if (currFile != null) {
-			handler.deleteCSV(fileName);
-		}
+		handler.deleteCSV(fileName);
 	}
 
 	public void appendLine(String fileName, String content) {
