@@ -44,11 +44,15 @@ public class LibraryInterface {
 		}
 	}
 
-	public void deleteLine(String fileName, int lineNum) throws IOException {
+	public void deleteLine(String fileName, int lineNum) {
 		File currFile = handler.getCSVFile(fileName);
 
 		if (currFile != null) {
-			editor.deleteLine(currFile, lineNum);
+			try {
+				editor.deleteLine(currFile, lineNum);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println("File doesn't exists");
 		}

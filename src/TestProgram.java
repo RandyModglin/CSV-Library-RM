@@ -25,6 +25,10 @@ public class TestProgram {
 		test6();
 		/* Replace a line in each CSV file */
 		test7();
+		/* Replace a line at the start of each CSV file */
+		test8();
+		/* Delete a line in each CSV file */
+		test9();
 
 	}
 
@@ -82,6 +86,30 @@ public class TestProgram {
 		System.out.println("File 1: Test 7");
 		CSVLibrary.printCSV("file1");
 		System.out.println("File 2: Test 7");
+		CSVLibrary.printCSV("file2");
+	}
+
+	/* Replacing Lines in CSV files that come before other lines */
+	public static void test8() {
+		System.out.println("");
+		CSVLibrary.replaceLine("file1", 1, ",Heading 4, Heading 5, Heading 6");
+		CSVLibrary.replaceLine("file2", 1, ",Heading D, Heading E, Heading F");
+
+		System.out.println("File 1: Test 8");
+		CSVLibrary.printCSV("file1");
+		System.out.println("File 2: Test 8");
+		CSVLibrary.printCSV("file2");
+	}
+
+	/* Delete Lines in CSV files */
+	public static void test9() {
+		System.out.println("");
+		CSVLibrary.deleteLine("file1", 1);
+		CSVLibrary.deleteLine("file2", 1);
+
+		System.out.println("File 1: Test 9");
+		CSVLibrary.printCSV("file1");
+		System.out.println("File 2: Test 9");
 		CSVLibrary.printCSV("file2");
 	}
 }
