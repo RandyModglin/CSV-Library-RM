@@ -55,7 +55,7 @@ public class FileEditor {
 					writer.write(currLine + "\n");
 					break;
 				case 2: /* Replace */
-					writer.write(content);
+					writer.write(content + "\n");
 					i++;
 					break;
 				}

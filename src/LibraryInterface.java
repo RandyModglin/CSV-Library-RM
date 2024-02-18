@@ -69,11 +69,15 @@ public class LibraryInterface {
 		}
 	}
 
-	public void replaceLine(String fileName, int lineNum, String content) throws IOException {
+	public void replaceLine(String fileName, int lineNum, String content) {
 		File currFile = handler.getCSVFile(fileName);
 
 		if (currFile != null) {
-			editor.replaceLine(currFile, lineNum, content);
+			try {
+				editor.replaceLine(currFile, lineNum, content);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println("File doesn't exists");
 		}
