@@ -15,9 +15,6 @@ public class LibraryInterface {
 
 		if (currFile == null) {
 			handler.createCSV(filename);
-			System.out.println("Created File: " + filename);
-		} else {
-			System.out.println("File already exists");
 		}
 	}
 
@@ -33,8 +30,6 @@ public class LibraryInterface {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else {
-			System.out.println("File does not exist");
 		}
 	}
 
@@ -43,9 +38,6 @@ public class LibraryInterface {
 
 		if (currFile != null) {
 			handler.deleteCSV(fileName);
-			System.out.println("Deleted File: " + fileName);
-		} else {
-			System.out.println("File doesn't exists");
 		}
 	}
 
