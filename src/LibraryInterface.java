@@ -55,11 +55,15 @@ public class LibraryInterface {
 
 	}
 
-	public void insertLine(String fileName, int lineNum, String content) throws IOException {
+	public void insertLine(String fileName, int lineNum, String content) {
 		File currFile = handler.getCSVFile(fileName);
 
 		if (currFile != null) {
-			editor.insertLine(currFile, lineNum, content);
+			try {
+				editor.insertLine(currFile, lineNum, content);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println("File doesn't exists");
 		}

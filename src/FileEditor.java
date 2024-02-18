@@ -6,7 +6,7 @@ public class FileEditor {
 	public void appendLine(File file, String content) {
 		try {
 			FileWriter writer = new FileWriter(file, true);
-			writer.write(content);
+			writer.write(content + "\n");
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
@@ -51,7 +51,8 @@ public class FileEditor {
 				case 0: /* Remove */
 					break;
 				case 1: /* Insert */
-					writer.write(content);
+					writer.write(content + "\n");
+					writer.write(currLine + "\n");
 					break;
 				case 2: /* Replace */
 					writer.write(content);
@@ -60,7 +61,7 @@ public class FileEditor {
 				}
 			} else {
 				/* Add in other lines */
-				writer.write(content);
+				writer.write(currLine + "\n");
 			}
 			i++;
 		}
