@@ -11,7 +11,6 @@ public class LibraryInterface {
 	private final FileEditor editor = new FileEditor();
 
 	public void createCSV(String filename) {
-		File currFile = handler.getCSVFile(filename);
 		handler.createCSV(filename);
 	}
 
@@ -31,7 +30,6 @@ public class LibraryInterface {
 	}
 
 	public void deleteCSV(String fileName) {
-		File currFile = handler.getCSVFile(fileName);
 		handler.deleteCSV(fileName);
 	}
 
@@ -40,6 +38,7 @@ public class LibraryInterface {
 
 		if (currFile != null) {
 			editor.appendLine(currFile, content);
+			System.out.println("Appending to: " + fileName);
 		} else {
 			System.out.println("File doesn't exists");
 		}

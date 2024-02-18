@@ -7,6 +7,8 @@ public class FileEditor {
 		try {
 			FileWriter writer = new FileWriter(file, true);
 			writer.write(content);
+			writer.flush();
+			writer.close();
 		} catch (IOException e) {
 			System.err.print("Error: ");
 			e.printStackTrace();
