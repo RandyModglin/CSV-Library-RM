@@ -19,7 +19,7 @@ public class LibraryInterface {
 		File currFile = handler.getCSVFile(filename);
 
 		if (currFile != null) {
-			try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+			try (BufferedReader reader = new BufferedReader(new FileReader(currFile))) {
 				String line;
 				while ((line = reader.readLine()) != null) {
 					System.out.println(line);
