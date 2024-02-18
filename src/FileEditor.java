@@ -3,7 +3,6 @@ package src;
 import java.io.*;
 
 public class FileEditor {
-
 	public void appendLine(File file, String content) {
 		try {
 			FileWriter writer = new FileWriter(file, true);
