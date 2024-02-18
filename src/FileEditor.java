@@ -4,41 +4,26 @@ import java.io.*;
 
 public class FileEditor {
 
-	private final FileHandler handler = new FileHandler();
-
-	public void appendLine(String fileName, String content) {
+	public void appendLine(File file, String content) {
 		try {
-			File currFile = handler.getCSVFile(fileName);
-			FileWriter fr = new FileWriter(currFile, true);
-			fr.write(content);
+			FileWriter writer = new FileWriter(file, true);
+			writer.write(content);
 		} catch (IOException e) {
 			System.err.print("Error: ");
 			e.printStackTrace();
 		}
 	}
 
-	public void deleteLine(String fileName, int lineNumber) throws IOException {
-		File currFile = handler.getCSVFile(fileName);
-
-		if (currFile != null) {
-			editLine(currFile, lineNumber, 0, "");
-		}
+	public void deleteLine(File file, int lineNumber) throws IOException {
+		editLine(file, lineNumber, 0, "");
 	}
 
-	public void insertLine(String fileName, int lineNumber, String content) throws IOException {
-		File currFile = handler.getCSVFile(fileName);
-
-		if (currFile != null) {
-			editLine(currFile, lineNumber, 1, content);
-		}
+	public void insertLine(File file, int lineNumber, String content) throws IOException {
+		editLine(file, lineNumber, 1, content);
 	}
 
-	public void replaceLine(String fileName, int lineNumber, String content) throws IOException {
-		File currFile = handler.getCSVFile(fileName);
-
-		if (currFile != null) {
-			editLine(currFile, lineNumber, 2, content);
-		}
+	public void replaceLine(File file, int lineNumber, String content) throws IOException {
+		editLine(file, lineNumber, 2, content);
 	}
 
 	private void editLine(File file, int lineNum, int opCode, String content) throws IOException {
